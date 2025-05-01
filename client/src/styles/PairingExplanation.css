@@ -1,0 +1,159 @@
+.pairing-explanation {
+  background-color: var(--white);
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.pairing-explanation h2 {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid rgba(139, 69, 19, 0.1);
+  padding-bottom: 0.8rem;
+}
+
+.pairing-explanation h2 span {
+  color: var(--secondary-color);
+}
+
+.explanation-content {
+  position: relative;
+  padding: 1.5rem 3rem;
+  margin-bottom: 1.5rem;
+  background-color: #f8f7f5;
+  border-radius: 8px;
+}
+
+.quote-mark {
+  position: absolute;
+  font-size: 5rem;
+  line-height: 1;
+  color: rgba(139, 69, 19, 0.1);
+  font-family: 'Georgia', serif;
+}
+
+.quote-mark.left {
+  top: 10px;
+  left: 10px;
+}
+
+.quote-mark.right {
+  bottom: -15px;
+  right: 10px;
+}
+
+.explanation-content p {
+  line-height: 1.8;
+  color: var(--text-color);
+  font-size: 1.05rem;
+  text-align: justify;
+}
+
+.explanation-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ai-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  background-color: rgba(139, 69, 19, 0.05);
+}
+
+.ai-icon {
+  width: 20px;
+  height: 20px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%238B4513"><path d="M21,15.61L19.59,17L14.58,12L19.59,7L21,8.39L17.44,12L21,15.61M3,6H16V8H3V6M3,13V11H13V13H3M3,18V16H16V18H3Z"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.ai-badge span {
+  font-size: 0.9rem;
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.explanation-sources {
+  position: relative;
+}
+
+.sources-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  color: var(--secondary-color);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.sources-button:hover .tooltip {
+  display: block;
+}
+
+.tooltip {
+  display: none;
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  width: 250px;
+  padding: 1rem;
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  margin-bottom: 0.5rem;
+}
+
+.tooltip:before {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  right: 20px;
+  border-width: 10px 10px 0;
+  border-style: solid;
+  border-color: var(--white) transparent transparent;
+}
+
+.tooltip ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tooltip li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  font-size: 0.85rem;
+  color: var(--light-text);
+}
+
+.tooltip li:last-child {
+  border-bottom: none;
+}
+
+@media (max-width: 768px) {
+  .explanation-content {
+    padding: 1.5rem;
+  }
+
+  .quote-mark {
+    font-size: 3rem;
+  }
+
+  .explanation-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
