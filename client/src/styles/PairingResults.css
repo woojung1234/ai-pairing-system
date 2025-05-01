@@ -1,0 +1,213 @@
+.pairing-results {
+  background-color: var(--white);
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.pairing-results h2 {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid rgba(139, 69, 19, 0.1);
+  padding-bottom: 0.8rem;
+}
+
+.pairing-results h2 span {
+  color: var(--secondary-color);
+}
+
+.results-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* 페어링 카드 */
+.pairing-card {
+  background-color: #f8f7f5;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.pairing-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.pairing-card.expanded {
+  background-color: var(--white);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.pairing-main {
+  padding: 1rem 1.5rem;
+}
+
+.pairing-score {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+
+.score-indicator {
+  flex-grow: 1;
+  height: 8px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-right: 1rem;
+}
+
+.score-fill {
+  height: 100%;
+  background-color: var(--primary-color);
+  border-radius: 4px;
+}
+
+.pairing-score span {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.pairing-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pairing-title h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--text-color);
+}
+
+.expand-button {
+  background: none;
+  border: none;
+  color: var(--light-text);
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-chevron-down, .icon-chevron-up {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.icon-chevron-down {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>');
+}
+
+.icon-chevron-up {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z"/></svg>');
+}
+
+/* 확장된 카드의 상세 정보 */
+.pairing-details {
+  padding: 0 1.5rem 1.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.pairing-description {
+  margin-bottom: 1.2rem;
+}
+
+.pairing-description p {
+  margin: 1rem 0;
+  color: var(--light-text);
+  line-height: 1.6;
+}
+
+.pairing-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.action-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.action-button.details {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+.action-button.details:hover {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+.action-button.save {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+.action-button.save:hover {
+  background-color: var(--secondary-color);
+}
+
+/* 결과가 없을 때 */
+.pairing-results.empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}
+
+.empty-message {
+  text-align: center;
+}
+
+.empty-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: var(--light-text);
+}
+
+.empty-message h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+.empty-message p {
+  color: var(--light-text);
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .pairing-results {
+    padding: 1rem;
+  }
+  
+  .pairing-main {
+    padding: 1rem;
+  }
+  
+  .pairing-details {
+    padding: 0 1rem 1rem;
+  }
+  
+  .pairing-actions {
+    flex-direction: column;
+  }
+}
