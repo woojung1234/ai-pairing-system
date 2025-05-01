@@ -1,0 +1,376 @@
+.dragdrop-component {
+  padding: 2rem;
+}
+
+.section-intro {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.section-intro h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.section-intro p {
+  font-size: 1.1rem;
+  color: var(--light-text);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.pairing-builder {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* 아이템 리스트 영역 */
+.item-lists {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.list-column {
+  background-color: #f8f7f5;
+  border-radius: 10px;
+  padding: 1.5rem;
+}
+
+.list-column h3 {
+  font-size: 1.3rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 1rem;
+}
+
+.draggable-item {
+  background-color: var(--white);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  cursor: grab;
+  transition: all 0.3s ease;
+}
+
+.draggable-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.draggable-item:active {
+  cursor: grabbing;
+}
+
+.item-image {
+  height: 100px;
+  background-size: cover;
+  background-position: center;
+}
+
+.draggable-item p {
+  padding: 0.8rem;
+  margin: 0;
+  font-size: 0.9rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* 드롭 영역 */
+.drop-zones {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.drop-zone {
+  width: 200px;
+  height: 200px;
+  border: 2px dashed var(--primary-color);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(139, 69, 19, 0.05);
+  transition: all 0.3s ease;
+}
+
+.drop-zone:hover {
+  background-color: rgba(139, 69, 19, 0.1);
+}
+
+.drop-zone.has-item {
+  border-style: solid;
+  background-color: var(--white);
+}
+
+.drop-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--light-text);
+  text-align: center;
+  padding: 1rem;
+}
+
+.placeholder-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.drop-placeholder p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.plus-sign {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.selected-item {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.selected-item .item-image {
+  flex-grow: 1;
+  height: auto;
+}
+
+.selected-item p {
+  padding: 0.8rem;
+  margin: 0;
+  text-align: center;
+  font-weight: 500;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.clear-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--error);
+  color: white;
+  font-size: 0.8rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.clear-button:hover {
+  opacity: 1;
+}
+
+/* 액션 영역 */
+.action-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.analyze-button {
+  padding: 1rem 2.5rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.analyze-button:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.analyze-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* 결과 영역 */
+.pairing-result {
+  margin-top: 4rem;
+  background-color: var(--white);
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.result-header h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: var(--primary-color);
+}
+
+.score-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color);
+  color: white;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  box-shadow: 0 5px 10px rgba(139, 69, 19, 0.2);
+}
+
+.score-badge span {
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+
+.score-badge strong {
+  font-size: 1.8rem;
+}
+
+.result-explanation {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.result-details {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+
+.compounds-analysis h3,
+.pairing-suggestions h3 {
+  font-size: 1.3rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+.compounds-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.compound-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.compound-bar label {
+  font-weight: 500;
+  width: 70px;
+}
+
+.bar-container {
+  flex-grow: 1;
+  height: 12px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background-color: var(--primary-color);
+  border-radius: 6px;
+}
+
+.compound-bar span {
+  font-size: 0.9rem;
+  font-weight: 600;
+  width: 40px;
+  text-align: right;
+}
+
+.pairing-suggestions ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pairing-suggestions li {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: #f8f7f5;
+  border-radius: 8px;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+/* 반응형 스타일 */
+@media (max-width: 992px) {
+  .item-lists {
+    grid-template-columns: 1fr;
+  }
+  
+  .result-details {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .drop-zones {
+    flex-direction: column;
+  }
+  
+  .result-header {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .compound-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .compound-bar label {
+    width: 100%;
+  }
+  
+  .bar-container {
+    width: 100%;
+  }
+  
+  .compound-bar span {
+    width: 100%;
+    text-align: left;
+  }
+}
