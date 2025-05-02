@@ -19,32 +19,99 @@ import NotFoundPage from './pages/NotFoundPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 
-// Create a theme
+// 주미당 테마 생성
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#8e24aa', // Purple
+      main: '#8b4513', // 전통적인 주미당 브라운
+      light: '#a05a2c',
+      dark: '#6b3000',
+      contrastText: '#fff',
     },
     secondary: {
-      main: '#ff6f00', // Amber
+      main: '#e63946', // 포인트 레드
+      light: '#ff6b6b',
+      dark: '#c1121f',
+      contrastText: '#fff',
     },
     background: {
-      default: '#f5f5f5',
+      default: '#f8f4e3', // 베이지 배경
+      paper: '#fff',
+    },
+    text: {
+      primary: '#333333',
+      secondary: '#555555',
     },
   },
   typography: {
-    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+    fontFamily: '"Noto Sans KR", "Nanum Gothic", "Roboto", "Helvetica", "Arial", sans-serif',
     h1: {
       fontSize: '2.5rem',
-      fontWeight: 500,
+      fontWeight: 700,
+      fontFamily: '"Nanum Myeongjo", serif',
     },
     h2: {
       fontSize: '2rem',
-      fontWeight: 500,
+      fontWeight: 600,
+      fontFamily: '"Nanum Myeongjo", serif',
     },
     h3: {
       fontSize: '1.75rem',
+      fontWeight: 600,
+      fontFamily: '"Nanum Myeongjo", serif',
+    },
+    h4: {
+      fontSize: '1.5rem',
+      fontWeight: 600,
+      fontFamily: '"Nanum Myeongjo", serif',
+    },
+    h5: {
+      fontSize: '1.25rem',
       fontWeight: 500,
+      fontFamily: '"Nanum Myeongjo", serif',
+    },
+    h6: {
+      fontSize: '1rem',
+      fontWeight: 500,
+      fontFamily: '"Nanum Myeongjo", serif',
+    },
+    button: {
+      fontWeight: 500,
+    },
+  },
+  shape: {
+    borderRadius: 8,
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: 4,
+          textTransform: 'none',
+          boxShadow: 'none',
+          '&:hover': {
+            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15)',
+          },
+        },
+        contained: {
+          boxShadow: 'none',
+        },
+      },
+    },
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
+          borderRadius: 8,
+        },
+      },
+    },
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
+        },
+      },
     },
   },
 });
@@ -83,9 +150,12 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <div className="App">
+      <div className="App" style={{ 
+        background: `linear-gradient(180deg, ${theme.palette.background.default} 0%, #ffffff 100%)`,
+        minHeight: '100vh' 
+      }}>
         <Header isAuthenticated={isAuthenticated} user={user} onLogout={handleLogout} />
-        <main style={{ minHeight: 'calc(100vh - 160px)', padding: '20px' }}>
+        <main style={{ minHeight: 'calc(100vh - 180px)', padding: '20px' }}>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/pairing" element={<PairingPage />} />
